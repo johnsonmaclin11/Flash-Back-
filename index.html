@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Enter your birthday and see what movies were out at that time" />
+
+		<link
+			rel="stylesheet"
+			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+			integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+			crossorigin="anonymous"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css"
+			integrity="sha512-braXHF1tCeb8MzPktmUHhrjZBSZknHvjmkUdkAbeqtIrWwCchhcpUeAf2Sq3yIq1Q1x5PlroafjceOUbIE3Q5g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<link rel="stylesheet" href="assets/css/style.css" />
+
+		<title>FlashBack</title>
+	</head>
+
+	<body class="w-screen h-screen grid relative bg-gray-600">
+		<header class="absolute top-0 left-0 z-50 w-max bg-blue-400 py-3 pl-4 pr-12 italic text-4xl font-bold">
+			<span class="text-gray-700">Flash</span>Back
+		</header>
+
+		<main class="flex flex-col lg:flex-row justify-center items-center font-bold">
+			<div class="text-gray-100 flex flex-col items-center gap-1 text-center mb-12 md:mb-0">
+				<div class="w-2/3 flex flex-col gap-2">
+					<h1 class="text-4xl lg:text-5xl">Welcome to <i>Flashback</i>!</h1>
+					<h3 class="lg:text-2xl">
+						Enter your birthday and see what movies were released when you were born
+					</h3>
+				</div>
+
+				<div
+					class="
+						date-group
+						my-9
+						rounded-lg
+						w-5/6
+						lg:w-3/5
+						max-w-xl
+						h-28
+						items-center
+						justify-items-center
+						bg-blue-400
+					"
+				>
+					<div class="input">
+						<input
+							type="text"
+							aria-label="birth month"
+							min="01"
+							max="12"
+							required
+							name="month"
+							id="month"
+							placeholder="MM"
+						/>
+					</div>
+					<div class="input">
+						<input
+							type="text"
+							required
+							aria-label="birth day"
+							min="01"
+							max="31"
+							name="day"
+							id="day"
+							placeholder="DD"
+						/>
+					</div>
+					<div class="input year">
+						<input
+							type="text"
+							required
+							aria-label="birth year"
+							name="year"
+							max="2021"
+							id="year"
+							placeholder="YYYY"
+						/>
+					</div>
+				</div>
+
+				<button
+					class="
+						bg-blue-400
+						border-white
+						text-white
+						p-3
+						rounded-lg
+						hover:bg-white hover:border-blue-400 hover:text-blue-400
+						font-bold
+						text-xl
+					"
+					disabled
+					type="submit"
+					onclick="requestMovie()"
+				>
+					Find your movie
+				</button>
+			</div>
+
+			<div class="movie grid gap-y-3 lg:w-2/5 bg-blue-400 p-8 rounded-2xl text-gray-100">
+				<img
+					id="poster"
+					class="filter drop-shadow-xl"
+					src="assets/images/placeholder.png"
+					alt="movie poster"
+				/>
+				<div class="movie-info text-xl">
+					<ul class="flex flex-col gap-1">
+						<li class="mb-6">
+							<div class="flex flex-row items-center gap-4" id="movie-title">--------------</div>
+						</li>
+						<li>
+							<div class="snippet labeled" id="release-date">
+								<i class="far fa-calendar"></i>
+								<p>-----------</p>
+							</div>
+						</li>
+						<li>
+							<div class="snippet labeled" id="runtime">
+								<i class="far fa-clock"></i>
+								<p>------</p>
+							</div>
+						</li>
+						<li>
+							<div class="snippet labeled" id="rating">
+								<i class="far fa-star"></i>
+								<p>-----------</p>
+							</div>
+						</li>
+						<li>
+							<div class="snippet labeled" id="starring">
+								<i class="fas fa-users"></i>
+								<p>----------------------------</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="snippet px-4 py-1" id="plot">-----------------</div>
+
+				<div
+					class="snippet w-full h-full whitespace-nowrap flex gap-1 items-center px-1"
+					id="services"
+				></div>
+			</div>
+		</main>
+
+		<script src="assets/js/script.js"></script>
+	</body>
+</html>
